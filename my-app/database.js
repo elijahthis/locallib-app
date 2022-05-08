@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-const db ="mongodb+srv://peculiar-codes:banks-bym@db1.cy4p7.mongodb.net/Peculiardb2?retryWrites=true&w=majority";
+const db ="";
 const connectDB = async () => {
   try {
     const connect=await mongoose.connect(db, {
