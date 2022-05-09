@@ -2,6 +2,8 @@
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
@@ -42,21 +44,22 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-const mongoose = require("mongoose");
-const db = "";
+
+// connecting to mongodb atlas
 const connectDB = async () => {
   try {
-    const connect = await mongoose.connect(db, {
+    const connect = await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
     });
-    console.log(connect.connection.host);
-    console.log("MongoDB Connected...");
+    console.log(`MongoDB connected: ${connect.connection.host}`);
   } catch (err) {
     console.error(err.message);
     process.exit(1);
   }
 };
 
+const PORT = process.env.PORT || 5000;
+
 connectDB();
-app.listen(8000);
+app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
 module.exports = app;
