@@ -12,7 +12,8 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "mongoose": "^6.3.2",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "pug": "^3.0.2"
   },
   "description": "A simple web app",
   "main": "app.js",
