@@ -13,6 +13,7 @@
     "jade": "~1.11.0",
     "mongoose": "^6.3.2",
     "morgan": "~1.9.1",
+    "nodemon": "^2.0.16",
     "pug": "^3.0.2"
   },
   "description": "A simple web app",
