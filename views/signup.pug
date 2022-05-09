@@ -2,26 +2,27 @@ extend layout
 block content
     div(class="form-container container")
     h1(id="login_header") Sign Up
-     form(method="post" action="/signup" class="form" id="signup_form")
-     if errors
-       each error in errors
-        span(class="errors") error
-      div(class="input_con container")
-       input(id="first_name" class="input" placeholder="First Name" type="text" required)
-      div(class="input_con container")
-       input(id="second_name" class="input" placeholder="second_name" type="text" required)
-      div(class="input_con container")
-       input(id="username" class="input" placeholder="Username" type="text" required)
-      div(class="input_con container")
-       input(id="password" class="input" placeholder="password" type="password")
-      div(class="input_con container")
-       input(id="confirm_password" class="input" placeholder="Confirm Password" type="password")
-      div(class="input_con container")
-       input(id="tel" class="input" placeholder="Tel" type="tel" required)
-      div(class="input_con container")
-       input(id="email" class="input" placeholder="email" type="email")
-     div(class="submit_con")
-      input(type="submit" id="submit" value="submit")
+     form(method="post" action="/user/signup" class="form" id="signup_form")
+        if errors
+         ul
+         for error in errors
+          li!= error.msg
+        div(class="input_con container")
+             input(id="first_name" class="input" placeholder="First Name" type="text"  name="first_name" required)
+        div(class="input_con container")
+            input(id="second_name" class="input" placeholder="second_name" type="text" name="last_name" required)
+        div(class="input_con container")
+              input(id="username" class="input" placeholder="Username" type="text" name="username" required)
+        div(class="input_con container")
+             input(id="password" class="input" placeholder="password" type="password" name="password")
+        div(class="input_con container")
+             input(id="confirm_password" class="input" placeholder="password" type="password" name="confirm_password")
+        div(class="input_con container")
+            input(id="tel" class="input" placeholder="Tel" type="tel" name="tel" required)
+        div(class="input_con container")
+           input(id="email" class="input" placeholder="email" type="email" name="email")
+        div(class="submit_con")
+           input(type="submit" id="submit" value="submit")
     a(href="/user/login") Login
     
     

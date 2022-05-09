@@ -1,5 +1,5 @@
 var asyn = require("async");
-var user = require("../models/usermodel");
+var User = require("../models/usermodel");
 const { body, validationResult } = require("express-validator");
 exports.create_user_post = [
   // Validate and sanitize the name field.
@@ -12,11 +12,7 @@ exports.create_user_post = [
   body("password", "Password Required").trim().isLength({ min: 8 }).escape(),
   body("email", "Email Required").trim().isLength({ min: 5 }).escape(),
   body("tel", "Tel Required").trim().isLength({ min: 10 }).escape(),
-  body("date_of_birth", "date_of_birth Required")
-    .trim()
-    .isLength({ min: 1 })
-    .escape(),
-
+  
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request.
@@ -28,12 +24,12 @@ exports.create_user_post = [
       { email: req.body.email },
       { tel: req.body.tel },
       { last_name: req.body.last_name },
-      { first_name: req.body.first_name },
-      { date_of_birth: req.body.date_of_birth }
+      { first_name: req.body.first_name }
     );
 
     if (!errors.isEmpty()) {
       // There are errors. Render the form again with sanitized values/error messages.
+      console.log(errors);
       res.render("signup", { errors: errors.array() });
       return;
     } else {
@@ -56,7 +52,7 @@ exports.create_user_post = [
               return next(err);
             }
             // User saved. Redirect to user detail page.
-            //res.render("home");
+            res.render("login");
           });
         }
       });
