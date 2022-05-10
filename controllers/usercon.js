@@ -61,4 +61,31 @@ exports.create_user_post = [
     }
   },
 ];
-exports.login = {};
+exports.login =[
+  body("username", "Username Required").trim().isLength({ min: 1 }).escape(),
+  body("first_name", "first_name Required")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+    (req,res,next) =>{
+    User.findOne({ username: req.body.username }).exec(function (
+        err,
+        found_user
+      ) {
+        if (err) {
+          return next(err);
+        }
+
+        if (found_user) {
+          if(found_user.pass===req.body.password){
+              res.redirect(found_user.url);
+          }else{
+              res.render("login", { errors: ["Incorrect password"] }); 
+          }
+        } else {
+            res.render("login", { errors: ["User not found"] });
+              }
+});
+}
+]
+   

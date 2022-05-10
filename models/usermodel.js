@@ -45,7 +45,16 @@ userSchema
   }
   return fullname;
 });
-
+userSchema
+.virtual("pass")
+.get(()=>{
+    return this.password;
+});
+userSchema
+.virtual("url")
+.get(()=>{
+    return '/user/' + this._id;
+});
 module.exports = mongoose.model('User', userSchema);
 
 

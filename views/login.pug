@@ -1,15 +1,19 @@
 extend layout
 block content
     div(class="form-container container")
-    h1(id="login_header") login
-     form(method="post" action="/login" class="form" id="logi _form")
-      div(class="input_con container")
-       input(id="username" class="input" placeholder="Username" type="text")
-      div(class="input_con container")
-       input(id="password" class="input" placeholder="password" type="password")
-     div(class="submit_con")
-      input(type="submit" id="submit" value="submit")
-      a(href="/user/signup") Signup
+    h1(id="login_header") Login
+     form(method="post" action="/user/login" class="form" id="login_form")
+        if errors
+         ul
+         for error in errors
+          li!= error.msg
+        div(class="input_con container")
+              input(id="username" class="input" placeholder="Username" type="text" name="username" required)
+        div(class="input_con container")
+             input(id="password" class="input" placeholder="password" type="password" name="password")
+        div(class="submit_con")
+           input(type="submit" id="submit" value="submit")
+        a(href="/user/login") Signup
     
     
     
