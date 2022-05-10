@@ -19,14 +19,16 @@ exports.create_user_post = [
     const errors = validationResult(req);
 
     // Create a user object with escaped and trimmed data.
-    var user = new User(
-      { username: req.body.username },
-      { email: req.body.email },
-      { tel: req.body.tel },
-      { last_name: req.body.last_name },
-      { first_name: req.body.first_name }
+    var user = new User(    
+   
+      { first_name: req.body.first_name,
+            last_name: req.body.last_name ,
+               username: req.body.username ,
+                 email: req.body.email ,
+                   password: req.body.password ,
+                       tel: req.body.tel }
     );
-
+     console.log(user);
     if (!errors.isEmpty()) {
       // There are errors. Render the form again with sanitized values/error messages.
       console.log(errors);
