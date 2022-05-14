@@ -1,0 +1,24 @@
+extend layout
+block content
+    div(id="musicList" class="musicList")
+        ul
+        h1 Local Music
+            each music in lmusics
+                li(class="eachMusic" id="#{music.dir + music.base}") #{music.name}
+    div(id="musicContainer" class="musicContainer")
+        div(id="audioC")
+            audio(id="audio" src="")
+        div(id="rangeCon" class="rangeCon")
+            input(type="range" id="range")
+        div(id="timerCon" class="timerCon")
+            span(id="timer" class="timer") 00:00
+        div(id="musicCon" class="musicCon")
+            button(id="play" class="play fa fa-play") play
+            button(id="stop" class="play fa fa-play") stop
+            button(id="next" class="next") next
+            button(id="prev" class="prev") prev
+
+
+
+
+

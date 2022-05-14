@@ -1,0 +1,75 @@
+@mixin important-text{
+    color:red;
+    text-shadow:1px 1px 1px red;
+}
+@mixin flex-center{
+    display:flex;
+    text-align:center;
+    align-items:center;
+    justify-content:center;
+}
+@mixin placeholder{
+    &::placeholder{
+        @content
+    }
+    }
+@mixin hover{    
+    &:hover{
+        @content
+    }
+    }
+@mixin blur{    
+    &:blur{
+        @content;
+    }
+}
+@mixin btn{
+    border:none;
+    outline:none;
+    color:inherit;
+    background-color:inherit;
+}
+body{
+    @include flex-center;
+    height:100vh;
+    width:100vw;
+    overflow:none;
+}
+.form-container{
+    @include flex-center;
+    flex-flow:colum  wrap;
+    height:90vh;
+    width:90vh;
+    overflow:none;
+}
+.container{
+    margin:0.5em 5px;
+    padding:4px;
+}
+.input_con{
+    @include flex-center;
+    flex-flow:row wrap;
+    border-radius:30px;
+    height:1em;
+    border:3px solid black;
+    input{
+        border:none;
+        outline:none;
+       @include placeholder{
+            color:blue;
+            opacity:0.6;
+            text-align:center;
+        
+        @include hover{
+           opacity:0.2; 
+        }
+        }
+    }
+}
+#submit{
+    @include btn;
+}
+
+
+
+

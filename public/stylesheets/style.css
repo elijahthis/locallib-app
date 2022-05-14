@@ -1,0 +1,57 @@
+body {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: none;
+}
+
+.form-container {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-flow: colum wrap;
+  height: 90vh;
+  width: 90vh;
+  overflow: none;
+}
+
+.container {
+  margin: 0.5em 5px;
+  padding: 4px;
+}
+
+.input_con {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  border-radius: 30px;
+  height: 1em;
+  border: 3px solid black;
+}
+.input_con input {
+  border: none;
+  outline: none;
+}
+.input_con input::placeholder {
+  color: blue;
+  opacity: 0.6;
+  text-align: center;
+}
+.input_con input::placeholder:hover {
+  opacity: 0.2;
+}
+
+#submit {
+  border: none;
+  outline: none;
+  color: inherit;
+  background-color: inherit;
+}
+
+/*# sourceMappingURL=style.css.map */
